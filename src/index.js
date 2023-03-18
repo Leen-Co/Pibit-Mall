@@ -1,17 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Favicon from "react-favicon";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
+// React Redux
+import store from "./store";
+import { Provider } from "react-redux";
+
+// import App Component
+import App from "./App";
+import FavLogo from "./components/images/bb-logo-1.svg";
+
+const root = document.querySelector("#root");
+
+ReactDOM.createRoot(root).render(
+  <Provider store={store}>
+    <Favicon url={FavLogo} />
     <App />
-  </React.StrictMode>
+  </Provider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
